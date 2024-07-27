@@ -1,0 +1,273 @@
+# Stop Sleeping on Go First Class Functions!
+
+Carson Anderson
+DevX-O / Principal Engineer, Weave
+@carson_ops
+
+https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
+
+https://github.com/MariaLetta/free-gophers-pack
+
+
+##
+
+.image assets/why.png _ 700
+
+##
+
+.image assets/tools.png _ 1000
+
+## What is a function?
+
+##
+
+.play -edit examples/basics/functions.go
+
+## What about methods?
+
+.play -edit examples/basics/methods.go
+
+
+## Let's talk about signatures
+
+.play -edit examples/basics/signatures-1.go /START OMIT/,/END OMIT/
+
+## Let's talk about signatures
+
+.play -edit examples/basics/signatures-2.go /START OMIT/,/END OMIT/
+
+## What is a "first class" function?
+
+##
+
+.image assets/types.png _ 1000
+
+##
+
+.image assets/pass-string.png _ 1000
+
+##
+
+.image assets/pass-int.png _ 1000
+
+##
+
+.image assets/pass-funcs.png _ 1000
+
+
+## Features of first class functions
+
+* Assignable to variables
+* Passable as arguments
+* Returnable as results
+* Can be anonymous
+* Can be nested
+* Can reference non-local variables
+* Support variable capture (closures)
+
+> Spoiler: Go can do all of this!
+
+.link https://en.wikipedia.org/wiki/First-class_function
+
+## Assigning functions to variables
+
+.play -edit examples/basics/fcf-basics-assign.go /START OMIT/,/END OMIT/
+
+## Passing functions as arguments
+
+.play -edit examples/basics/fcf-basics-passable.go /START OMIT/,/END OMIT/
+
+## Returning functions as results
+
+.play -edit examples/basics/fcf-basics-returnable.go /START OMIT/,/END OMIT/
+
+## Anonymous functions
+
+.play -edit examples/basics/fcf-basics-nested.go /START OMIT/,/END OMIT/
+
+## Nested functions
+
+.play -edit examples/basics/fcf-basics-anonymous.go /START OMIT/,/END OMIT/
+
+## Non-local variables
+
+.play -edit examples/basics/fcf-basics-non-local-variable.go /START OMIT/,/END OMIT/
+
+## Closures
+
+.play -edit examples/basics/fcf-basics-non-local-variable.go /START OMIT/,/END OMIT/
+
+## The one thing you can't do
+
+.play -edit examples/basics/fcf-basics-compare.go /START OMIT/,/END OMIT/
+
+
+## Go bonus features
+
+* As Types
+* As struct fields
+* In slices
+* As map values
+* In channels
+
+.image assets/bonus.png _ 450
+
+## First Class Methods
+
+.play -edit examples/basics/fcf-basics-methods.go /START OMIT/,/END OMIT/
+
+## As Types
+
+.play -edit examples/basics/fcf-basics-as-types.go /START OMIT/,/END OMIT/
+
+## As Struct Fields
+
+.play -edit examples/basics/fcf-basics-as-fields.go /START OMIT/,/END OMIT/
+
+## In Slices
+
+.play -edit examples/basics/fcf-basics-in-slices.go /START OMIT/,/END OMIT/
+
+## As Map *Values*
+
+.play -edit examples/basics/fcf-basics-in-maps.go /START OMIT/,/END OMIT/
+
+## In Channels
+
+.play -edit examples/basics/fcf-basics-in-channels.go /START OMIT/,/END OMIT/
+
+## Why Not Just Use Interfaces?
+
+## Interfaces
+
+.play -edit examples/fcf-vs-interface/interface.go /START OMIT/,/END OMIT/
+
+## Functions
+
+.play -edit examples/fcf-vs-interface/function.go /START OMIT/,/END OMIT/
+
+## Did you know: Functions can implement interfaces?
+
+.play -edit examples/fcf-vs-interface/function-implement-interface.go /START OMIT/,/END OMIT/
+
+## Practical Usage
+
+## Practical Usage
+
+* Defer
+* Defer + Closures
+* Testing
+* Ordered Serialized Operations
+* Template Function Maps
+
+.image assets/practical.png _ 450
+
+## Practical Usage - Defer
+
+## Practical Usage - Defer
+
+.play -edit examples/practical/defer.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Defer + Closures
+
+## Practical Usage - Defer + Closures
+
+Thanks to closures, we can actually modify named return values in defer!
+
+.play -edit examples/practical/defer-closure.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Defer + Closures for errors
+
+.play -edit examples/practical/defer-closure-err.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Testing - Table Helpers
+
+## Practical Usage - Testing - Table Helpers Without FCFs
+
+.play -edit examples/practical/testing-table-helpers/main.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Testing Without FCFs
+
+.code -edit examples/practical/testing-table-helpers/main_test.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Testing With FCFs!
+
+.code -edit examples/practical/testing-table-helpers-fixed/main_test.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Practical Usage - Testing - Asserters
+
+## Practical Usage - Testing - Asserters
+
+.play -edit examples/practical/testing-asserters/main.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Testing Without FCFs
+
+.code -edit examples/practical/testing-asserters/main_test.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Testing With FCFs!
+
+.code -edit examples/practical/testing-asserters-fixed/main_test.go /START TESTS OMIT/,/END TESTS OMIT/
+
+## Testing With FCFs!
+
+.code -edit examples/practical/testing-asserters-fixed/main_test.go /START CASE OMIT/,/END CASE OMIT/
+
+## Testing With FCFs!
+
+.code -edit examples/practical/testing-asserters-fixed/main_test.go /START RUN OMIT/,/END RUN OMIT/
+
+## Alternate test method
+
+.play -edit examples/practical/testing-asserters-alt/main.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Alternate test method
+
+.code -edit examples/practical/testing-asserters-alt/main_test.go /START TESTS OMIT/,/END TESTS OMIT/
+
+## Alternate test method
+
+.code -edit examples/practical/testing-asserters-alt/main_test.go /START CASE OMIT/,/END CASE OMIT/
+
+## Practical Usage - Ordered Serialized Operations
+
+## Practical Usage - Ordered Serialized Operations
+
+.play -edit examples/practical/serialized-operations.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Ordered Serialized Operations
+
+.play -edit examples/practical/serialized-operations.go /START MAIN OMIT/,/END MAIN OMIT/
+
+## Practical Usage - Ordered Serialized Operations - With FCFs!
+
+.play -edit examples/practical/serialized-operations-fixed.go /START PRINTER1 OMIT/,/END PRINTER1 OMIT/
+
+## Practical Usage - Ordered Serialized Operations - With FCFs!
+
+.play -edit examples/practical/serialized-operations-fixed.go /START PRINTER2 OMIT/,/END PRINTER2 OMIT/
+
+## Practical Usage - Ordered Serialized Operations - With FCFs!
+
+.play -edit examples/practical/serialized-operations-fixed.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Template Function Maps
+
+## Practical Usage - Template Function Maps
+
+.play -edit examples/practical/template-funcmaps.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Template Function Maps - Continued
+
+.play -edit examples/practical/template-funcmaps.go /START TEMPLATE OMIT/,/END TEMPLATE OMIT/
+
+## Practical Usage - Template Function Maps - With FCFs!
+
+.play -edit examples/practical/template-funcmaps-fixed.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Template Function Maps - With FCFs! - Continued
+
+.play -edit examples/practical/template-funcmaps-fixed.go /START TEMPLATE OMIT/,/END TEMPLATE OMIT/
+
+##
+
+.image assets/stars.png _ 600
