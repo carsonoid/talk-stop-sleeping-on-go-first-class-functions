@@ -1,0 +1,83 @@
+# Stop Sleeping on Go First Class Functions!
+
+Carson Anderson
+DevX-O / Principal Engineer, Weave
+@carson_ops
+
+https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
+
+## What is a function?
+
+.play examples/basics/functions.go
+
+## What about methods?
+
+.play examples/basics/methods.go
+
+## What is a "first class" function?
+
+## Features of first class functions
+
+* Assignable to variables
+* Passable as arguments
+* Returninable as results
+* Can be anonymous
+* Can be nested
+* Can reference non-local variables
+* Support variable capture (closures)
+
+.link https://en.wikipedia.org/wiki/First-class_function
+
+> Spoiler: Go can do all of this!
+
+## Assigning functions to variables
+
+.play examples/basics/fcf-basics-assign.go /START OMIT/,/END OMIT/
+
+## Passing functions as arguments
+
+.play examples/basics/fcf-basics-passable.go /START OMIT/,/END OMIT/
+
+## Returning functions as results
+
+.play examples/basics/fcf-basics-returnable.go /START OMIT/,/END OMIT/
+
+## Anonymous functions
+
+.play examples/basics/fcf-basics-anonymous.go /START OMIT/,/END OMIT/
+
+## Nested functions
+
+.play examples/basics/fcf-basics-anonymous.go /START OMIT/,/END OMIT/
+
+## Non-local variables
+
+.play examples/basics/fcf-basics-non-local-variable.go /START OMIT/,/END OMIT/
+
+## Closures
+
+.play examples/basics/fcf-basics-closures.go /START OMIT/,/END OMIT/
+
+## Imagine life without FCFs
+
+## Practical Usage - HTTP Handlers
+
+## Practical Usage - Testing
+
+## Practical Usage - Hide Channels
+
+.play examples/practical/hide-channels.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Hide Channels - Fixed!
+
+.code examples/practical/hide-channels-fixed.go /START GETQUEUE/,/END GETQUEUE/
+
+## Practical Usage - Hide Channels - Fixed!
+
+.play examples/practical/hide-channels-fixed.go /START OMIT/,/END OMIT/
+
+## Practical Usage - In Channels
+
+## Practical Usage - Defer
+
+## Practical Usage - Cleanup
