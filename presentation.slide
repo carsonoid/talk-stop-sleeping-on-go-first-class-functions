@@ -8,11 +8,11 @@ https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
 
 ## What is a function?
 
-.play examples/basics/functions.go
+.play -edit examples/basics/functions.go
 
 ## What about methods?
 
-.play examples/basics/methods.go
+.play -edit examples/basics/methods.go
 
 ## What is a "first class" function?
 
@@ -32,52 +32,90 @@ https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
 
 ## Assigning functions to variables
 
-.play examples/basics/fcf-basics-assign.go /START OMIT/,/END OMIT/
+.play -edit examples/basics/fcf-basics-assign.go /START OMIT/,/END OMIT/
 
 ## Passing functions as arguments
 
-.play examples/basics/fcf-basics-passable.go /START OMIT/,/END OMIT/
+.play -edit examples/basics/fcf-basics-passable.go /START OMIT/,/END OMIT/
 
 ## Returning functions as results
 
-.play examples/basics/fcf-basics-returnable.go /START OMIT/,/END OMIT/
+.play -edit examples/basics/fcf-basics-returnable.go /START OMIT/,/END OMIT/
 
 ## Anonymous functions
 
-.play examples/basics/fcf-basics-anonymous.go /START OMIT/,/END OMIT/
+.play -edit examples/basics/fcf-basics-anonymous.go /START OMIT/,/END OMIT/
 
 ## Nested functions
 
-.play examples/basics/fcf-basics-anonymous.go /START OMIT/,/END OMIT/
+.play -edit examples/basics/fcf-basics-anonymous.go /START OMIT/,/END OMIT/
 
 ## Non-local variables
 
-.play examples/basics/fcf-basics-non-local-variable.go /START OMIT/,/END OMIT/
+.play -edit examples/basics/fcf-basics-non-local-variable.go /START OMIT/,/END OMIT/
 
 ## Closures
 
-.play examples/basics/fcf-basics-closures.go /START OMIT/,/END OMIT/
+.play -edit examples/basics/fcf-basics-closures.go /START OMIT/,/END OMIT/
+
+## As Struct Fields
+
+.play -edit examples/basics/fcf-basics-as-fields.go /START OMIT/,/END OMIT/
+
+## In Slices
+
+.play -edit examples/basics/fcf-basics-in-slices.go /START OMIT/,/END OMIT/
+
+## In Maps
+
+.play -edit examples/basics/fcf-basics-in-maps.go /START OMIT/,/END OMIT/
+
+## In Channels
+
+.play -edit examples/basics/fcf-basics-in-channels.go /START OMIT/,/END OMIT/
 
 ## Imagine life without FCFs
+
+## Practical Usage - Defer
 
 ## Practical Usage - HTTP Handlers
 
 ## Practical Usage - Testing
 
-## Practical Usage - Hide Channels
-
-.play examples/practical/hide-channels.go /START OMIT/,/END OMIT/
-
-## Practical Usage - Hide Channels - Fixed!
-
-.code examples/practical/hide-channels-fixed.go /START GETQUEUE/,/END GETQUEUE/
-
-## Practical Usage - Hide Channels - Fixed!
-
-.play examples/practical/hide-channels-fixed.go /START OMIT/,/END OMIT/
-
 ## Practical Usage - In Channels
 
-## Practical Usage - Defer
+## Practical Usage - Hide Channels
 
 ## Practical Usage - Cleanup
+
+## Practical Usage - Template Function Maps
+
+## Practical Usage - Template Function Maps
+
+.play -edit examples/practical/template-funcmaps.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Template Function Maps - Continued
+
+.play -edit examples/practical/template-funcmaps-fixed.go /START TEMPLATE OMIT/,/END TEMPLATE OMIT/
+
+## Practical Usage - Template Function Maps - With FCFs!
+
+.play -edit examples/practical/template-funcmaps-fixed.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Template Function Maps - With FCFs! - Continued
+
+.play -edit examples/practical/template-funcmaps-fixed.go /START TEMPLATE OMIT/,/END TEMPLATE OMIT/
+
+## Practical Usage - Ordered Serialized Operations
+
+## Practical Usage - Ordered Serialized Operations
+
+.play -edit examples/practical/serialized-operations.go /START OMIT/,/END OMIT/
+
+## Practical Usage - Ordered Serialized Operations - With FCFs!
+
+.play -edit examples/practical/serialized-operations-fixed.go /START PRINTER OMIT/,/END PRINTER OMIT/
+
+## Practical Usage - Ordered Serialized Operations - With FCFs!
+
+.play -edit examples/practical/serialized-operations-fixed.go /START OMIT/,/END OMIT/
