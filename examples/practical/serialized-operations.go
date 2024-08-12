@@ -8,7 +8,7 @@ import (
 // START OMIT
 func main() {
 	p := &printer{}
-	wg := sync.WaitGroup{}
+	wg := &sync.WaitGroup{}
 	for i := 0; i < 3; i++ {
 		wg.Add(1)
 		i := i
