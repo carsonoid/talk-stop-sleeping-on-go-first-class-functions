@@ -4,12 +4,28 @@ import (
 	"bytes"
 	"io"
 	"net/http"
+	"net/http/httptest"
 	"testing"
 )
 
+// START ORIGINAL OMIT
 func Test_getURL(t *testing.T) {
-	t.Skip("no way to reliably test this function")
+	s := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	}))
+	t.Cleanup(s.Close)
+
+	status, err := getURL(s.URL)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if status != http.StatusOK {
+		t.Errorf("got %d, want %d", status, http.StatusOK)
+	}
 }
+
+// END ORIGINAL OMIT
 
 type FakeTransport struct {
 	response *http.Response
@@ -181,7 +197,28 @@ func Test_getURLWithGlobal(t *testing.T) {
 	}
 }
 
+// START WITH_FUNC OMIT
 func Test_getURLWithFunc(t *testing.T) {
+	fn := func(url string) (resp *http.Response, err error) {
+		return &http.Response{
+			Body:       io.NopCloser(&bytes.Buffer{}),
+			StatusCode: 200,
+		}, nil
+	}
+
+	resp, err := getURLWithFunc(fn, "unused")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if resp != http.StatusOK {
+		t.Errorf("got %d, want %d", resp, http.StatusOK)
+	}
+}
+
+// END WITH_FUNC OMIT
+
+func Test_getURLWithFunc_table(t *testing.T) {
 	type args struct {
 		get getFunc
 		url string

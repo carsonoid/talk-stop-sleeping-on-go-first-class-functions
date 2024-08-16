@@ -6,8 +6,6 @@ import (
 	"time"
 )
 
-// START OMIT
-
 func main() {
 	url := "http://www.google.com"
 	status, err := getURL(url)
@@ -17,6 +15,7 @@ func main() {
 	println(status)
 }
 
+// START ORIGINAL OMIT
 func getURL(url string) (int, error) {
 	c := &http.Client{Timeout: 5 * time.Second}
 	resp, err := c.Get(url)
@@ -28,4 +27,4 @@ func getURL(url string) (int, error) {
 	return resp.StatusCode, nil
 }
 
-// END OMIT
+// END ORIGINAL OMIT
