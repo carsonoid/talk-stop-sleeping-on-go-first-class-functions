@@ -3,15 +3,6 @@ package main
 import "fmt"
 
 // START OMIT
-func main() {
-	// assign and call
-	fn := getFunc("hello")
-	fn()
-
-	// call returned function directly
-	getFunc("goodbye")()
-}
-
 func printHello() {
 	fmt.Println("Hello World!")
 }
@@ -25,6 +16,15 @@ func getFunc(s string) func() {
 		return printHello
 	}
 	return printGoodbye
+}
+
+func main() {
+	// assign and call
+	hello := getFunc("hello")
+	hello()
+
+	// call returned function directly
+	getFunc("goodbye")()
 }
 
 // END OMIT

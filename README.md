@@ -4,3 +4,7 @@
 ```sh
 ./run
 ```
+
+## Credits
+
+* [gophers](https://github.com/MariaLetta/free-gophers-pack/tree/master/examples)

@@ -6,17 +6,25 @@ import (
 )
 
 // START OMIT
-func main() {
-	fn := getHello(time.Now())
-	fn()
-	time.Sleep(1 * time.Second)
-	fn()
-}
-
 func getHello(now time.Time) func() {
 	return func() {
 		fmt.Println("Hello, World! It's", now)
 	}
+}
+
+func callTwice(fn func()) {
+	fn()
+	fn()
+}
+
+func main() {
+	hello := getHello(time.Now())
+	hello()
+	callTwice(hello)
+	callTwice(func() {
+		fmt.Print("closure a closure: ")
+		hello()
+	})
 }
 
 // END OMIT

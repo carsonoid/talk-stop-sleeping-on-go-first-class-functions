@@ -22,6 +22,7 @@ func main() {
 		sayGoodbye()
 	}
 	run()
+	run()
 }
 
 // END OMIT

@@ -5,13 +5,14 @@ import (
 )
 
 func main() {
-	g := greeter{}
+	g := greeter{"Hello,"}
 	g.sayHello("World")
 }
 
 type greeter struct {
+	msg string
 }
 
 func (g *greeter) sayHello(user string) {
-	fmt.Println("Hello, ", user, "!")
+	fmt.Println(g.msg, user+"!")
 }

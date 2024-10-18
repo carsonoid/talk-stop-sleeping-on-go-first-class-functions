@@ -6,6 +6,14 @@ import (
 )
 
 // START OMIT
+
+func greet(name string) string {
+	return "Hello, " + name
+}
+
+func emphasize(s string) string {
+	return s + "!"
+}
 func main() {
 	actions := map[string]func(string) string{
 		"greet":     greet,
@@ -14,19 +22,11 @@ func main() {
 		"comment":   func(s string) string { return s + " - from a map" },
 	}
 
-	name := "Alice"
+	name := "Raul"
 	name = actions["greet"](name)
 	name = actions["emphasize"](name)
 	name = actions["toUpper"](name)
 	fmt.Println(name)
-}
-
-func greet(name string) string {
-	return "Hello, " + name
-}
-
-func emphasize(s string) string {
-	return s + "!"
 }
 
 // END OMIT

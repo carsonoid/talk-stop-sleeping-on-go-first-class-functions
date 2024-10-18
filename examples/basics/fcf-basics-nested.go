@@ -9,10 +9,11 @@ func main() {
 	}
 	printHello()
 
-	printGoodbye := func() {
+	// functions can also be called without
+	// assigning them to a variable
+	func() {
 		fmt.Println("Goodbye World!")
-	}
-	printGoodbye()
+	}()
 }
 
 // END OMIT

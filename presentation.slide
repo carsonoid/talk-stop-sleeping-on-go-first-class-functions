@@ -6,13 +6,28 @@ DevX-O / Principal Engineer, Weave
 
 https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
 
+##
+
+.image assets/why.png _ 700
+
+##
+
+.image assets/tools.png _ 1000
+
 ## What is a function?
+
+##
 
 .play -edit examples/basics/functions.go
 
 ## What about methods?
 
 .play -edit examples/basics/methods.go
+
+
+## Let's talk about signatures
+
+TODO
 
 ## What is a "first class" function?
 
@@ -26,9 +41,9 @@ https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
 * Can reference non-local variables
 * Support variable capture (closures)
 
-.link https://en.wikipedia.org/wiki/First-class_function
-
 > Spoiler: Go can do all of this!
+
+.link https://en.wikipedia.org/wiki/First-class_function
 
 ## Assigning functions to variables
 
@@ -44,11 +59,11 @@ https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
 
 ## Anonymous functions
 
-.play -edit examples/basics/fcf-basics-anonymous.go /START OMIT/,/END OMIT/
+.play -edit examples/basics/fcf-basics-nested.go /START OMIT/,/END OMIT/
 
 ## Nested functions
 
-.play -edit examples/basics/fcf-basics-nested.go /START OMIT/,/END OMIT/
+.play -edit examples/basics/fcf-basics-anonymous.go /START OMIT/,/END OMIT/
 
 ## Non-local variables
 
@@ -58,6 +73,18 @@ https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
 
 .play -edit examples/basics/fcf-basics-closures.go /START OMIT/,/END OMIT/
 
+## Go bonus usages
+
+* As Types
+* As struct fields
+* In slices
+* As map values
+* In channels
+
+## As Types
+
+.play -edit examples/basics/fcf-basics-as-types.go /START OMIT/,/END OMIT/
+
 ## As Struct Fields
 
 .play -edit examples/basics/fcf-basics-as-fields.go /START OMIT/,/END OMIT/
@@ -66,7 +93,7 @@ https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
 
 .play -edit examples/basics/fcf-basics-in-slices.go /START OMIT/,/END OMIT/
 
-## In Maps
+## As Map Values
 
 .play -edit examples/basics/fcf-basics-in-maps.go /START OMIT/,/END OMIT/
 
@@ -74,7 +101,23 @@ https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
 
 .play -edit examples/basics/fcf-basics-in-channels.go /START OMIT/,/END OMIT/
 
-## Imagine life without FCFs
+## Why Not Just Use Interfaces?
+
+## Interfaces
+
+.play -edit examples/fcf-vs-interface/interface.go /START OMIT/,/END OMIT/
+
+## Functions
+
+.play -edit examples/fcf-vs-interface/function.go /START OMIT/,/END OMIT/
+
+## Did you know: Functions can implement interfaces?
+
+.play -edit examples/fcf-vs-interface/function-implement-interface.go /START OMIT/,/END OMIT/
+
+## Practical Usage
+
+## Practical Usage - Defer
 
 ## Practical Usage - Defer
 
@@ -82,19 +125,11 @@ https://github.com/carsonoid/talk-stop-sleeping-on-go-first-class-functions
 
 ## Practical Usage - Defer + Closures
 
+## Practical Usage - Defer + Closures
+
 Thanks to closures, we can actually modify named return values in defer!
 
 .play -edit examples/practical/defer-closure.go /START OMIT/,/END OMIT/
-
-## Practical Usage - HTTP Handlers
-
-## Practical Usage - Testing
-
-## Practical Usage - In Channels
-
-## Practical Usage - Hide Channels
-
-## Practical Usage - Cleanup
 
 ## Practical Usage - Template Function Maps
 
@@ -104,7 +139,7 @@ Thanks to closures, we can actually modify named return values in defer!
 
 ## Practical Usage - Template Function Maps - Continued
 
-.play -edit examples/practical/template-funcmaps-fixed.go /START TEMPLATE OMIT/,/END TEMPLATE OMIT/
+.play -edit examples/practical/template-funcmaps.go /START TEMPLATE OMIT/,/END TEMPLATE OMIT/
 
 ## Practical Usage - Template Function Maps - With FCFs!
 
@@ -128,22 +163,62 @@ Thanks to closures, we can actually modify named return values in defer!
 
 .play -edit examples/practical/serialized-operations-fixed.go /START OMIT/,/END OMIT/
 
-## Practical Usage - Testing
+## Practical Usage - Testing - Table Helpers
 
-## Practical Usage - Testing
+## Practical Usage - Testing - Table Helpers Without FCFs
+
+.play -edit examples/practical/testing-table-helpers/main.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Testing Without FCFs
+
+.play -edit examples/practical/testing-table-helpers/main_test.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Testing With FCFs!
+
+.play -edit examples/practical/testing-table-helpers-fixed/main_test.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Practical Usage - Testing - Asserters
+
+## Practical Usage - Testing - Asserters
+
+.play -edit examples/practical/testing-asserters/main.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Testing Without FCFs
+
+.play -edit examples/practical/testing-asserters/main_test.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
+
+## Testing With FCFs!
+
+.play -edit examples/practical/testing-asserters-fixed/main_test.go /START TESTS OMIT/,/END TESTS OMIT/
+
+## Testing With FCFs!
+
+.play -edit examples/practical/testing-asserters-fixed/main_test.go /START CASE OMIT/,/END CASE OMIT/
+
+## Testing With FCFs!
+
+.play -edit examples/practical/testing-asserters-fixed/main_test.go /START RUN OMIT/,/END RUN OMIT/
+
+## Practical Usage - Testing - Integration
+
+## Practical Usage - Testing - Integration
 
 .play -edit examples/practical/testing/main.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
 
 How do you test `getURL`?
 
-## Practical Usage - Testing - Without FCFs
+## Testing Without FCFs
 
 .play -edit examples/practical/testing/main_test.go /START ORIGINAL OMIT/,/END ORIGINAL OMIT/
 
-## Practical Usage - Testing - With FCFs!
+## Testing With FCFs!
 
 .play -edit examples/practical/testing-fixed/main.go /START WITH_FUNC OMIT/,/END WITH_FUNC OMIT/
 
-## Practical Usage - Testing - With FCFs!
+## Testing With FCFs!
 
 .play -edit examples/practical/testing-fixed/main_test.go /START WITH_FUNC OMIT/,/END WITH_FUNC OMIT/
+
+##
+
+.image assets/stars.png _ 600

@@ -1,20 +1,9 @@
 package main
 
 // START OMIT
-func main() {
-	clients := []client{
-		{"Alice", func(name string) { println("Hello,", name+"! You rock!") }},
-		{"Bob", greet},
-	}
-
-	for _, c := range clients {
-		c.greet()
-	}
-}
-
 type client struct {
 	name string
-	do   func(string)
+	do   func(string) // <- a function!
 }
 
 func (c *client) greet() {
@@ -23,6 +12,17 @@ func (c *client) greet() {
 
 func greet(name string) {
 	println("Hello,", name)
+}
+
+func main() {
+	clients := []client{
+		{"Tami", func(name string) { println("Hello,", name+"! You rock!") }},
+		{"Raul", greet},
+	}
+
+	for _, c := range clients {
+		c.greet()
+	}
 }
 
 // END OMIT
